@@ -298,23 +298,7 @@ Here are the 8 standard test examples evaluated by our system:
 
 ---
 
-## 18. Hackathon & Viva Defense Q&A
-
-**Q1: Why did you use stratified splitting?**  
-*Answer:* Stratification ensures that each of the 8 categories is proportionally represented (exactly 80% train, 20% test = 40 samples per class in test). Without stratification, random sampling might undersample a category in the test set.
-
-**Q2: How did you prevent data leakage in your TF-IDF pipeline?**  
-*Answer:* We fit the `TfidfVectorizer` exclusively on `X_train`. The vocabulary and IDF weights are computed only from training documents. The test set (`X_test`) is only transformed using those pre-computed weights.
-
-**Q3: How do you handle prediction confidence for Linear SVM vs Logistic Regression?**  
-*Answer:* Logistic Regression outputs true posterior probabilities via `predict_proba()`. Linear SVM only produces signed distances from decision boundaries via `decision_function()`. We avoid displaying misleading pseudo-percentages for SVM and clearly label the metric as a normalized decision score.
-
-**Q4: Are the extracted category keywords true topics?**  
-*Answer:* No. They are mathematical TF-IDF feature weights that indicate lexical distinctiveness for each category, rather than unsupervised semantic topics (like LDA).
-
----
-
-## 19. Future Improvements
+## 18. Future Improvements
 1. **Active Learning Feedback Loop:** Add a button in the UI for support agents to correct misclassified complaints and log them for retraining.
 2. **Multi-Label Classification:** Extend the system to complaints spanning multiple departments (e.g., "Cancel my order and give me a refund" -> Cancellation + Refund).
 3. **Sentiment & Urgency Scoring:** Incorporate sentiment polarity to flag angry or high-priority tickets for immediate supervisor review.
