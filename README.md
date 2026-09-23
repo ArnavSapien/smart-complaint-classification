@@ -1,4 +1,4 @@
-# PS-01: Smart Complaint Classification
+# Smart Complaint Classification
 
 > **AI-assisted complaint categorization for faster support routing**  
 > A college hackathon: Natural Language Processing (NLP) project built with Python, Scikit-learn, and Streamlit.
